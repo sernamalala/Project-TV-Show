@@ -6,19 +6,25 @@
     <title>TV Show Project | Serna Malala (sernamalala}</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <template>
-      <section>
+    <p>All the information on this page is from <a href="https://tvmaze.com/">TV Maze</a> ©️</p>
+    <section id="episode-section"></section>
+    <template id="episode-template">
+      
         <h2 id="episode-name">Episode Title</h2>
         <p id="season-number">01</p>
         <p id="episode-number">01</p>
         <p id="episode-code">S02E01</p>
         <img src="" alt="" id="episode-image" />
         <p id="episode-summary">Summary</p>
-      </section>
-    </template>
+     
+    </template> 
+  </section>
     <div id="root"></div>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->

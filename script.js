@@ -70,6 +70,7 @@ function populateEpisodeSelector(allEpisodes) {
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search-input");
   const episodeSelector = document.getElementById("episode-selector");
+  const clearButton = document.getElementById("clear-button");
   let allEpisodes = getAllEpisodes();
 
   searchInput.addEventListener("input", () => filterEpisodes(allEpisodes));
@@ -84,6 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       displayEpisodecard(allEpisodes);
     }
+  });
+
+  clearButton.addEventListener("click", () => {
+    episodeSelector.value = "";
+    displayEpisodecard(allEpisodes);
   });
 
   setup();

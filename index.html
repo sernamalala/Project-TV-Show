@@ -13,6 +13,15 @@
 
   <body>
     <p>All the information on this page is from <a href="https://tvmaze.com/">TV Maze</a> ©️</p>
+    <div id="search-select">
+      <input type="text" id="search-input" placeholder="Search for episodes" />
+      <p id="search-count"></p>
+      <select id="episode-selector">
+        <option value="">Select an episode</option>
+      </select>
+      <button id="clear-button">Clear Selection</button>
+    </div>
+    <br>
     <section id="episode-section"></section>
     <template id="episode-template">
       

@@ -1,21 +1,35 @@
 #root {
   color: red;
 }
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 h2 {
   font-family: "Raleway", serif;
   border-bottom: 1px solid black;
   padding: 10px;
 }
+
 #episode-section {
   text-align: center;
   border: 1px solid grey;
 }
+
 #episode-summary {
   max-width: 45em;
   border-bottom: 1px solid black;
+}
+
+#search-select {
+  display: flex;
+  justify-content: space-around;
+}
+
+#search-input {
+  width: 130px;
+  margin-right: 20px;
 }

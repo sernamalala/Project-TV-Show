@@ -1,8 +1,9 @@
-//You can edit ALL of the code here
+// You can edit ALL of the code here
 function setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
   displayEpisodecard(allEpisodes);
+  populateEpisodeSelector(allEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
@@ -12,10 +13,10 @@ function makePageForEpisodes(episodeList) {
 
 function displayEpisodecard(allEps) {
   const cardSection = document.getElementById("episode-section");
+  cardSection.innerHTML = ""; // Clear previous episodes
 
   for (const episode of allEps) {
     const { name, season, number, image, summary } = episode;
-
     const episodeCard = document
       .getElementById("episode-template")
       .content.cloneNode(true);

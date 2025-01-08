@@ -1,25 +1,19 @@
 // You can edit ALL of the code here
 function setup() {
-
   getEpisodes();
-
 }
 
 async function fetchData() {
-
   try {
     const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
     const result = await response.json();
     // console.log(result)
     //an array is returned
     return result;
-
   } catch (error) {
-
     console.error("Error fetching data", error);
   }
-
-};
+}
 
 async function getEpisodes() {
   const allEpisodes = await fetchData();
@@ -27,7 +21,6 @@ async function getEpisodes() {
   displayEpisodecard(allEpisodes);
   populateEpisodeSelector(allEpisodes);
   return allEpisodes;
-
 }
 
 function makePageForEpisodes(episodeList) {
@@ -84,8 +77,9 @@ function populateEpisodeSelector(allEpisodes) {
     option.value = episode.id;
     option.textContent = `S${episode.season
       .toString()
-      .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${episode.name
-      }`;
+      .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${
+      episode.name
+    }`;
     episodeSelector.appendChild(option);
   });
 }
@@ -116,9 +110,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-
-
 setup();
-
 
 window.onload = setup;

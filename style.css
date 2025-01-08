@@ -35,6 +35,7 @@ h2 {
   width: 130px;
   margin-right: 20px;
   height: 30px;
+
 }
 
 #episode-selector,
@@ -42,6 +43,8 @@ h2 {
   width: 130px;
   margin-right: 20px;
   height: 40px;
+  color: grey;
+
 }
 
 #search-count {
@@ -67,4 +70,8 @@ h2 {
   border-radius: 5px;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+option {
+  color: grey;
 }

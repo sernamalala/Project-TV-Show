@@ -6,21 +6,24 @@ function setup() {
 async function fetchData() {
   try {
     const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     const result = await response.json();
-    // console.log(result)
-    //an array is returned
     return result;
   } catch (error) {
     console.error("Error fetching data", error);
+    displayErrorMessage("Error fetching data. Please try again later.");
   }
 }
 
 async function getEpisodes() {
   const allEpisodes = await fetchData();
-  makePageForEpisodes(allEpisodes);
-  displayEpisodecard(allEpisodes);
-  populateEpisodeSelector(allEpisodes);
-  return allEpisodes;
+  if (allEpisodes) {
+    makePageForEpisodes(allEpisodes);
+    displayEpisodecard(allEpisodes);
+    populateEpisodeSelector(allEpisodes);
+  }
 }
 
 function makePageForEpisodes(episodeList) {

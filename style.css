@@ -28,6 +28,7 @@ h2 {
   display: flex;
   justify-content: space-around;
   gap: 20px;
+  text-align: center;
 }
 
 #search-input {
@@ -36,7 +37,8 @@ h2 {
   height: 30px;
 }
 
-#episode-selector {
+#episode-selector,
+#show-selector {
   width: 130px;
   margin-right: 20px;
   height: 40px;
@@ -54,4 +56,15 @@ h2 {
   border: none;
   border-radius: 5px;
   font-weight: bold;
+}
+
+#show-name {
+  background-color: rgb(78, 75, 75);
+  width: 500px;
+  text-align: center;
+  height: 40px;
+  padding-top: 10px;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

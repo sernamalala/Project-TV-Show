@@ -1,6 +1,12 @@
 // You can edit ALL of the code here
-function setup() {
-  getEpisodes();
+async function setup() {
+  const allEpisodes = await getEpisodes();
+  if (allEpisodes) {
+    makePageForEpisodes(allEpisodes);
+    displayEpisodecard(allEpisodes);
+    populateEpisodeSelector(allEpisodes);
+    addEventListeners(allEpisodes);
+  }
 }
 
 async function fetchData() {
@@ -19,16 +25,17 @@ async function fetchData() {
 
 async function getEpisodes() {
   const allEpisodes = await fetchData();
-  if (allEpisodes) {
-    makePageForEpisodes(allEpisodes);
-    displayEpisodecard(allEpisodes);
-    populateEpisodeSelector(allEpisodes);
-  }
+  return allEpisodes;
 }
 
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
   rootElem.textContent = `Got ${episodeList.length} episode(s)`;
+}
+
+function displayErrorMessage(message) {
+  const rootElem = document.getElementById("root");
+  rootElem.textContent = message;
 }
 
 function displayEpisodecard(allEps) {
@@ -87,11 +94,10 @@ function populateEpisodeSelector(allEpisodes) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+function addEventListeners(allEpisodes) {
   const searchInput = document.getElementById("search-input");
   const episodeSelector = document.getElementById("episode-selector");
   const clearButton = document.getElementById("clear-button");
-  const allEpisodes = await getEpisodes();
 
   searchInput.addEventListener("input", () => filterEpisodes(allEpisodes));
 
@@ -111,8 +117,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     episodeSelector.value = "";
     displayEpisodecard(allEpisodes);
   });
-});
+}
 
-setup();
-
-window.onload = setup;
+document.addEventListener("DOMContentLoaded", setup);

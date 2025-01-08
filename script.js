@@ -1,9 +1,33 @@
 // You can edit ALL of the code here
 function setup() {
-  const allEpisodes = getAllEpisodes();
+
+  getEpisodes();
+
+}
+
+async function fetchData() {
+
+  try {
+    const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+    const result = await response.json();
+    // console.log(result)
+    //an array is returned
+    return result;
+
+  } catch (error) {
+
+    console.error("Error fetching data", error);
+  }
+
+};
+
+async function getEpisodes() {
+  const allEpisodes = await fetchData();
   makePageForEpisodes(allEpisodes);
   displayEpisodecard(allEpisodes);
   populateEpisodeSelector(allEpisodes);
+  return allEpisodes;
+
 }
 
 function makePageForEpisodes(episodeList) {
@@ -60,18 +84,17 @@ function populateEpisodeSelector(allEpisodes) {
     option.value = episode.id;
     option.textContent = `S${episode.season
       .toString()
-      .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${
-      episode.name
-    }`;
+      .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${episode.name
+      }`;
     episodeSelector.appendChild(option);
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const searchInput = document.getElementById("search-input");
   const episodeSelector = document.getElementById("episode-selector");
   const clearButton = document.getElementById("clear-button");
-  let allEpisodes = getAllEpisodes();
+  const allEpisodes = await getEpisodes();
 
   searchInput.addEventListener("input", () => filterEpisodes(allEpisodes));
 
@@ -91,8 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
     episodeSelector.value = "";
     displayEpisodecard(allEpisodes);
   });
-
-  setup();
 });
+
+
+
+setup();
+
 
 window.onload = setup;

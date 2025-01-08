@@ -14,6 +14,9 @@
   <body>
     <p>All the information on this page is from <a href="https://tvmaze.com/">TV Maze</a> ©️</p>
     <div id="search-select">
+      <select id="show-selector">
+        <option value="">Select a show</option>
+      </select>
       <input type="text" id="search-input" placeholder="Search for episodes" />
       <p id="search-count"></p>
       <select id="episode-selector">
@@ -21,7 +24,8 @@
       </select>
       <button id="clear-button">Clear Selection</button>
     </div>
-    <br>
+    <h3 id="show-name"></h3>
+    
     <section id="episode-section"></section>
     <template id="episode-template">
       

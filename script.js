@@ -195,6 +195,7 @@ tvShowDropdown.addEventListener("change", async function () {
 //This function will display the retrieved TV show data as cards on the page
 //LEVEL 500
 function displayShows(showsArray) {
+  showsArray.sort((a, b) => a.name.localeCompare(b.name));
   document.getElementById("title").textContent = "All TV Shows listing";
   document.getElementById("user-changes").style.display = "none";
   const tvSearchDiv = document.getElementById("tv-search");

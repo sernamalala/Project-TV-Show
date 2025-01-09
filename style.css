@@ -9,6 +9,7 @@ body {
   width: max-content;
   margin: 0 auto;
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 #episode-name,
 #tv-show-name {
@@ -33,4 +34,11 @@ body {
   text-decoration: underline;
   color: purple;
   cursor: pointer;
+}
+#return-to-tv-show {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(37, 35, 35);
+  display: none;
 }

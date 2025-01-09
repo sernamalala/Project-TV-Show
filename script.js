@@ -264,8 +264,8 @@ function presentEpisodesOfShow() {
       const backToTVShows = document.getElementById("return-to-tv-show");
       const card = title.closest(".tv-show-card");
       const showID = card.getAttribute("data-show-id");
-
-      backToTVShows.textContent = "Return to TV Show Listings";
+      backToTVShows.style.display = "inline-block";
+      backToTVShows.textContent = "Return to TV Show Listings ⬅️";
       backToTVShows.addEventListener('click', async function () {
         document.getElementById("episode-section").style.display = "none";
         document.getElementById("user-changes").style.display = "none";

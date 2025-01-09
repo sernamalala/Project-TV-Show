@@ -15,21 +15,27 @@ body {
 #tv-show-name {
   font-family: "Raleway", serif;
 }
-.episode-card {
-  background: rgba(145, 138, 138, 0.432);
-  margin: 0 auto;
-  padding: 10px;
-  margin-bottom: 20px;
-  max-width: 700px;
+#tv-show-section,
+#episode-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 20px;
 }
 
-.tv-show-card {
-  background: rgba(173, 167, 167, 0.432);
-  width: 700px;
+.episode-card {
   margin: 0 auto;
-  padding: 10px;
-  margin-bottom: 30px;
+  padding-bottom: 20px;
 }
+.tv-show-card,
+.episode-card {
+  flex: 1 1 400px;
+  max-width: 700px;
+  box-sizing: border-box;
+  background: rgba(145, 138, 138, 0.432);
+}
+
 #tv-show-name:hover {
   text-decoration: underline;
   color: purple;

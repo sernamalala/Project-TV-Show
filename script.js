@@ -244,8 +244,8 @@ function tvShowSearch(tvShows) {
   const searchCount = document.getElementById("tv-search-count");
   console.log(userInput)
   const filteredShows = tvShows.filter(function (singleShow) {
-    const genreSearch = singleShow.genres.some(genre => genre.toLowerCase());
-    return singleShow.name.toLowerCase().includes(userInput) || singleShow.summary.toLowerCase().includes(userInput) || genreSearch.includes(userInput);
+    const genreSearch = singleShow.genres.some(genre => genre.toLowerCase().includes(userInput));
+    return singleShow.name.toLowerCase().includes(userInput) || singleShow.summary.toLowerCase().includes(userInput) || genreSearch;
   });
 
   if (userInput.length > 0) {

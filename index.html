@@ -3,47 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serna Malala TV Show Project</title>
     <title>TV Show Project | Serna Malala (sernamalala}</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./script.js"></script>
   </head>
-
   <body>
-    <p>All the information on this page is from <a href="https://tvmaze.com/">TV Maze</a> ©️</p>
-    <div id="search-select">
-      <select id="show-selector">
-        <option value="">Select a show</option>
-      </select>
-      <input type="text" id="search-input" placeholder="Search for episodes" />
+    <p>
+      All of this data is being retrieved from
+      <a href="https://www.tvmaze.com/">TV Maze</a>
+    </p>
+    <h1 id="title"></h1>
+    <a href="" id="return-to-tv-show"></a>
+    <div id="user-changes">
+      <input type="text" id="search-bar" placeholder="search for an episode" />
       <p id="search-count"></p>
-      <select id="episode-selector">
-        <option value="">Select an episode</option>
-      </select>
-      <button id="clear-button">Clear Selection</button>
+      <select name="episode-dropdown" id="episode-dropdown"></select>
+      <button id="clear-selection">clear selection</button>
+      <br />
+      <select name="tv-show-dropdown" id="tv-show-dropdown"></select>
     </div>
-    <h3 id="show-name"></h3>
-    
+    <div id="tv-search"></div>
+    <section id="tv-show-section"></section>
+    <template id="tv-show-card">
+      <div class="tv-show-card">
+        <h2 id="tv-show-name"></h2>
+        <img src="" alt="" id="tv-show-image" />
+        <p id="tv-show-summary"></p>
+        <p id="genre"></p>
+        <p id="status"></p>
+        <p id="rating"></p>
+        <p id="runtime"></p>
+        <a href="" id="tv-show-link"></a>
+      </div>
+    </template>
+    <!-- EPISODES -->
     <section id="episode-section"></section>
-    <template id="episode-template">
-      
-        <h2 id="episode-name">Episode Title</h2>
-        <p id="season-number">01</p>
-        <p id="episode-number">01</p>
-        <p id="episode-code">S02E01</p>
+    <template id="episode-card">
+      <div class="episode-card">
+        <h2 id="episode-name"></h2>
+        <p id="episode-code"></p>
         <img src="" alt="" id="episode-image" />
-        <p id="episode-summary">Summary</p>
-     
-    </template> 
-  </section>
-    <div id="root"></div>
-
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <!-- <script src="episodes.js"></script> -->
-
-    <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
+        <p id="episode-summary"></p>
+        <a href="" id="episode-link"></a>
+      </div>
+    </template>
   </body>
 </html>

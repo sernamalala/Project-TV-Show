@@ -227,12 +227,12 @@ function displayShows(showsArray) {
     tvShowCard.querySelector("#tv-show-name").textContent = `${singleShow.name}`;
     tvShowCard.querySelector("#tv-show-image").src = singleShow.image["medium"];
     tvShowCard.querySelector("#tv-show-summary").innerHTML = singleShow.summary;
-    tvShowCard.querySelector("#tv-show-link").textContent = `${singleShow.name} URL`;
+    tvShowCard.querySelector("#tv-show-link").innerHTML = `<strong>URL : ${singleShow.name}`;
     tvShowCard.querySelector("#tv-show-link").href = singleShow.url;
-    tvShowCard.querySelector("#genre").textContent = `Genre(s) : ${singleShow.genres}`;
-    tvShowCard.querySelector("#status").textContent = `Status : ${singleShow.status}`;
-    tvShowCard.querySelector("#rating").textContent = `Rating : ${singleShow.rating["average"]}`;
-    tvShowCard.querySelector("#runtime").textContent = `Runtime : ${singleShow.runtime} minutes`;
+    tvShowCard.querySelector("#genre").innerHTML = `<strong>Genre(s)</strong> : ${singleShow.genres}`;
+    tvShowCard.querySelector("#status").innerHTML = `<strong>Status </strong>: ${singleShow.status}`;
+    tvShowCard.querySelector("#rating").innerHTML = `<strong>Rating</strong> : ${singleShow.rating["average"]}`;
+    tvShowCard.querySelector("#runtime").innerHTML = `<strong> Runtime</strong> : ${singleShow.runtime} minutes`;
     tvShowsSection.appendChild(tvShowCard);
 
   });

@@ -19,7 +19,7 @@ async function getEpisodes(showID) {
     allEpisodes = result;
     // console.log(`Fetched episodes for showID: ${showID}`, allEpisodes);
   } catch (error) {
-    alert("An error has occured", error);
+    alert("An error has occured with fetching episode data from the API", error);
     console.error("There is an error: ", error);
   }
 }
@@ -34,7 +34,7 @@ async function getTVShows() {
     allTVShows = result;
     //console.log(result)
   } catch (error) {
-    alert("An error has occured", error);
+    alert("An error has occured with fetching TV show data from the API", error);
     console.error("There is an error: ", error);
   }
 }

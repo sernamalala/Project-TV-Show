@@ -21,6 +21,7 @@ async function getEpisodes(showID) {
   } catch (error) {
     alert("An error has occured with fetching episode data from the API", error);
     console.error("There is an error: ", error);
+    displayShows(allTVShows)
   }
 }
 
@@ -36,7 +37,9 @@ async function getTVShows() {
   } catch (error) {
     alert("An error has occured with fetching TV show data from the API", error);
     console.error("There is an error: ", error);
+    displayShows(allTVShows)
   }
+
 }
 
 
@@ -53,7 +56,18 @@ function displayEpisodes(episodesArray) {
     episodeCard.querySelector("#episode-name").textContent = `${singleEpisode.name}`;
     let episodeCode = `S${(singleEpisode.season).toString().padStart(2, "0")}E${(singleEpisode.number).toString().padStart(2, "0")}`;
     episodeCard.querySelector("#episode-code").textContent = episodeCode;
-    episodeCard.querySelector("#episode-image").src = singleEpisode.image["medium"];
+
+    // Image must exist first
+    const episodeImage = episodeCard.querySelector("#episode-image");
+
+    if (singleEpisode.image && singleEpisode.image.medium) {
+      episodeImage.src = singleEpisode.image.medium;
+    } else {
+
+      episodeImage.src = '';
+      episodeImage.alt = 'No image available';
+    }
+
     episodeCard.querySelector("#episode-summary").innerHTML = singleEpisode.summary;
     episodeCard.querySelector("#episode-link").textContent = `${singleEpisode.name} URL`;
     episodeCard.querySelector("#episode-link").href = singleEpisode.url;;
@@ -267,24 +281,27 @@ function presentEpisodesOfShow() {
       const showID = card.getAttribute("data-show-id");
       backToTVShows.style.display = "inline-block";
       backToTVShows.textContent = "Return to TV Show Listings ⬅️";
+
+
       backToTVShows.addEventListener('click', async function () {
         document.getElementById("episode-section").style.display = "none";
         document.getElementById("user-changes").style.display = "none";
         document.getElementById("tv-episode-section").style.display = "block";
+        document.getElementById("tv-search").style.display = "block";
         await setup();
 
       });
-      await getEpisodes(showID);
-      displayEpisodes(allEpisodes);
 
-      setupEpisodeDropdown(allEpisodes);
-      setupTVShowDropdown(allTVShows);
-      clearSelection();
 
       document.getElementById("tv-show-section").style.display = "none";
       document.getElementById("tv-search").style.display = "none";
       document.getElementById("episode-section").style.display = "block";
 
+      await getEpisodes(showID);
+      displayEpisodes(allEpisodes);
+      setupTVShowDropdown(allTVShows);
+      setupEpisodeDropdown(allEpisodes);
+      clearSelection();
       // Update the title to the show's name
       document.getElementById("title").textContent = `TV Show : ${title.textContent}`;
     });

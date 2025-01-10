@@ -234,7 +234,7 @@ function displayShows(showsArray) {
     tvShowCard.querySelector("#rating").innerHTML = `<strong>Rating</strong> : ${singleShow.rating["average"]}`;
     tvShowCard.querySelector("#runtime").innerHTML = `<strong> Runtime</strong> : ${singleShow.runtime} minutes`;
     tvShowsSection.appendChild(tvShowCard);
-
+    presentEpisodesOfShow();
   });
 }
 
